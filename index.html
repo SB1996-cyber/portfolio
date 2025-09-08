@@ -79,6 +79,11 @@
     .avatar .bottom{padding:18px}
     .avatar h3{margin:6px 0 0;font-size:25px;color: #f3d144;}
     .avatar p{margin:0;color:var(--subtle)}
+    .avatar .top img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
     /* ========= SECTIONS ========= */
     section{padding:48px 0;border-top:1px solid var(--stroke)}
@@ -125,7 +130,23 @@
     .contact .cta{display:flex;flex-direction:column;gap:10px}
 
     footer{border-top:1px solid var(--stroke);padding:22px 0;color:var(--subtle)}
-
+      /* Hamburger styles */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 6px;
+  margin-left: auto;
+}
+.container {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 10 !important;
+  padding-right: 10 !important;
+}
     /* Responsive */
     @media (max-width: 900px){
       .hero-card{grid-template-columns:1fr}
@@ -134,6 +155,226 @@
       .grid .proj{grid-column:span 12}
       .contact{grid-template-columns:1fr}
     }
+/* ========== RESPONSIVE BREAKPOINTS ========== */
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+  .grid .proj {
+    grid-column: span 6;
+  }
+}
+
+/* Smaller tablets and landscape phones */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hero-card,
+  .about,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .grid .proj {
+    grid-column: span 12;
+  }
+
+  .btnrow {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .avatar {
+    justify-self: stretch;
+    align-self: center;
+  }
+  .hamburger {
+    display: block;
+  }
+
+  nav[aria-label="Primary"] ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav[aria-label="Primary"].open ul {
+    display: flex;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  /* .avatar .top {
+    height: 80px;
+  } */
+.avatar .top {
+  height: 120px;
+  overflow: hidden;
+}
+.avatar .top img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+  .avatar h3 {
+    font-size: 20px;
+  }
+
+  .proj .thumb {
+    height: 120px;
+  }
+
+  .card,
+  .item,
+  .proj {
+    padding: 16px;
+  }
+
+  .pill {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}
+
+/* Extra small screens (small phones) */
+@media (max-width: 480px) {
+  .timeline {
+    padding-left: 18px;
+  }
+
+  .timeline::before {
+    left: 8px;
+  }
+
+  .item::before {
+    left: -20px;
+    top: 14px;
+  }
+
+  .tag {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}
+/* Very small screens (e.g., 320px wide phones) */
+@media (max-width: 320px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .hero h1 {
+    font-size: 20px;
+  }
+
+  .lead {
+    font-size: 15px;
+  }
+
+  .btn {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .btnrow {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pill {
+    font-size: 13px;
+    padding: 6px 8px;
+  }
+
+  .avatar .top {
+    height: 60px;
+  }
+
+  .avatar h3 {
+    font-size: 18px;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .proj .thumb {
+    height: 100px;
+  }
+
+  .proj .body {
+    padding: 14px;
+  }
+
+  .contact .cta {
+    padding: 14px;
+  }
+
+  nav[aria-label="Primary"] ul {
+    gap: 6px;
+  }
+
+  .timeline {
+    padding-left: 16px;
+  }
+
+  .item {
+    padding: 14px;
+  }
+
+  .item::before {
+    left: -20px;
+    top: 12px;
+  }
+
+  .edu .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  footer {
+    font-size: 13px;
+    text-align: center;
+  }
+}
+
 
     /* Accessibility */
     .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
@@ -142,20 +383,28 @@
 </head>
 
 <body>
+  
+
   <a href="#main" class="skip-link">Skip to content</a>
   <header>
     <div class="container nav">
-      <a class="logo" href="#">Srikant <span>Behura</span></a>
-      <nav aria-label="Primary">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <a class="logo" href="#">Srikant Behura</a>
+
+<button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+  ☰
+</button>
+
+<nav id="main-nav" aria-label="Primary">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
       <label class="theme-toggle" title="Toggle theme (CSS-only)">
         <input id="themeSwitch" type="checkbox" aria-label="Toggle theme" />
         <span class="toggle" aria-hidden="true"></span>
@@ -389,4 +638,15 @@
     </div>
   </footer>
 </body>
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('nav[aria-label="Primary"]');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+
+    const isOpen = nav.classList.contains('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+</script>
 </html>
